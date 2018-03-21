@@ -152,8 +152,8 @@ public class BookAppMain extends JFrame{
             String contact=jTextField2.getText();
             String age=jTextField3.getText();
             String dname=(String)jComboBox1.getSelectedItem();
-             String time=(String)jComboBox2.getSelectedItem();
-             String date=(String)jComboBox3.getSelectedItem();
+             String time=(String)jComboBox3.getSelectedItem();
+             String date=(String)jComboBox2.getSelectedItem();
              Account a=new Account();
                 try {
                     a.insertPatientInfo(name, contact, age, dname, date, time);
