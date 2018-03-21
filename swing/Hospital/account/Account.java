@@ -17,7 +17,7 @@ public class Account {
     String url="jdbc:mysql://localhost:3306/hospital";
     String driver="com.mysql.jdbc.Driver";
     Connection con;
-    private String d1;
+    // String d1;
     //step2
     void dbConnect() throws ClassNotFoundException, SQLException
     {
@@ -78,4 +78,34 @@ public class Account {
         return rst;
         
     }
+  /*   public ResultSet cancel() throws ClassNotFoundException, SQLException
+     {
+         dbConnect();
+         String sql="delete *from patient 
+        return null;
+         
+     }*/
+     public void CancelPatient(String name,String contact) throws ClassNotFoundException, SQLException
+     {
+         dbConnect();
+         
+     String sql="delete from patient where name=? and contact=?";
+      PreparedStatement pstmt=con.prepareStatement(sql);
+      pstmt.setString(1,name);
+      pstmt.setString(2,contact);
+
+      
+      pstmt.executeUpdate();
+      dbClose();
+
+  }
+     public ResultSet info() throws ClassNotFoundException, SQLException
+     {
+         dbConnect();
+        String sql="select * from patient";
+        PreparedStatement pstmt=con.prepareStatement(sql); 
+          ResultSet rst= pstmt.executeQuery();
+            return rst;
+     }
+             
 }
